@@ -5,7 +5,10 @@
     "outDir": "./out-tsc/app",
     "types": [
       "node"
-    ]
+    ],
+    "importHelpers": true,
+    "esModuleInterop": true,
+    "module": "esnext" // or "commonjs" depending on your setup
   },
   "files": [
     "src/main.ts",
