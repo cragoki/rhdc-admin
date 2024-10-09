@@ -8,3 +8,9 @@
       width: 80%;
       margin:20px auto;
   }
+
+  .header-container
+  {
+    margin-top:10px;
+    text-align: center;
+  }
