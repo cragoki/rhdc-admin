@@ -16,35 +16,31 @@ export class EditRaceCourseComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private fb: FormBuilder,
-    private apiService: ApiServiceService // Inject the API service
+    private apiService: ApiServiceService 
   ) {}
 
   ngOnInit(): void {
-    // Retrieve the id from the route parameters
     this.route.params.subscribe(params => {
       const id = params['id'];
       if (id) {
-        this.fetchRaceCourse(id);  // Fetch the race course data based on the id
+        this.fetchRaceCourse(id);  
       }
     });
   }
 
-  // Method to fetch the race course data by id
   fetchRaceCourse(id: string): void {
     this.apiService.getItem<RaceCourseModel>(`Course/GetRaceCourse?id=${id}`).subscribe(
       (data) => {
         this.raceCourse = data;
-        this.initForm();  // Initialize the form once the data is fetched
+        this.initForm(); 
       }
     );
   }
 
-  // Initialize the form with the fetched data
   initForm() {
-    console.log(this.raceCourse);
     this.raceCourseForm = this.fb.group({
-      id: [{ value: this.raceCourse?.id, disabled: true }],  // id is disabled
-      name: [{ value: this.raceCourse?.name, disabled: true }, Validators.required], // name is displayed but not editable
+      id: [{ value: this.raceCourse?.id, disabled: true }],  
+      name: [{ value: this.raceCourse?.name, disabled: true }, Validators.required], 
       surfaceType: [this.raceCourse?.surfaceType, Validators.required],
       grade: [this.raceCourse?.grade, Validators.required],
       speedType: [this.raceCourse?.speedType, Validators.required],
@@ -52,11 +48,20 @@ export class EditRaceCourseComponent implements OnInit {
     });
   }
 
-  // Handle form submission
   onSubmit() {
     if (this.raceCourseForm.valid) {
-      console.log(this.raceCourseForm.value);
-      // Submit logic here
+    // Temporarily enable 'id' and 'name' fields (surely this can't be the way angular, come on)
+      this.raceCourseForm.get('id')?.enable();
+      this.raceCourseForm.get('name')?.enable();
+
+        this.apiService.updateItem<RaceCourseModel>('Course/EditRaceCourse', this.raceCourseForm.value)
+            .subscribe(
+                result => {
+                    alert('Course saved');
+                    this.raceCourseForm.get('id')?.disable();
+                    this.raceCourseForm.get('name')?.disable();
+                }
+            );
     }
-  }
+}
 }

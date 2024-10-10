@@ -3,6 +3,14 @@
   <div class="row justify-content-center">
     <div class="col-md-8">
       <form [formGroup]="raceCourseForm" (ngSubmit)="onSubmit()" *ngIf="raceCourseForm">
+
+      <!-- Row for Name input -->
+      <div class="form-group row" hidden>
+        <div class="col-md-6">
+          <label for="name">Id</label>
+            <input hidden type="text" id="id" formControlName="id" class="form-control" [attr.disabled]="true" />
+        </div>
+      </div>
         
         <!-- Row for Name input -->
         <div class="form-group row">

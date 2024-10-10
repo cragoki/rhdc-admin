@@ -25,4 +25,13 @@ export class ApiServiceService {
   getItem<T>(url: string): Observable<T> {
     return this.httpClient.get<T>(this.baseUrl + url);
   }
+
+  updateItem<T>(url: string, item: any): Observable<T> {
+    console.log(this.baseUrl + url);
+    return this.httpClient.post<T>(this.baseUrl + url, item, {
+      headers: new HttpHeaders({
+          'Content-Type': 'application/json'
+        })
+    });
+  }
 }
