@@ -17,7 +17,7 @@ export class ErrorsTableComponent implements AfterViewInit {
   @ViewChild(MatTable) table!: MatTable<ErrorModel>;
 
   dataSource!: ErrorsTableDataSource;
-  displayedColumns = ['id', 'tableName', 'className', 'methodName', 'errorType', 'stacktrace', 'innerException', 'message', 'date'];
+  displayedColumns = ['id', 'tableName', 'className', 'methodName', 'errorType', 'stacktrace', 'innerException', 'message', 'date', 'resolve'];
 
   constructor(private apiService: ApiServiceService) {}
 
@@ -32,5 +32,15 @@ export class ErrorsTableComponent implements AfterViewInit {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
     this.table.dataSource = this.dataSource;
+  }
+
+  onResolve(row: ErrorModel): void {
+    if(confirm("Are you sure to mark this row as resolved")) {
+      this.apiService.updateItem<ErrorModel>('ErrorLog/Resolve', row)
+      .subscribe(
+        result => {
+          window.location.reload();
+      }
+    );    }
   }
 }

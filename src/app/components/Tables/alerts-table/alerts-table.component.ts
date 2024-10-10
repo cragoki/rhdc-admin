@@ -17,7 +17,7 @@ export class AlertsTableComponent implements AfterViewInit {
   @ViewChild(MatTable) table!: MatTable<AlertModel>;
 
   dataSource!: AlertsTableDataSource;
-  displayedColumns = ['id', 'type', 'message', 'dateLogged'];
+  displayedColumns = ['id', 'type', 'message', 'dateLogged', 'resolve'];
 
   constructor(private apiService: ApiServiceService) {}
 
@@ -32,5 +32,16 @@ export class AlertsTableComponent implements AfterViewInit {
     this.dataSource.paginator = this.paginator;
     this.dataSource.sort = this.sort;
     this.table.dataSource = this.dataSource;
+  }
+
+  onResolve(row: AlertModel): void {
+    if(confirm("Are you sure to mark this row as resolved")) {
+      this.apiService.updateItem<AlertModel>('Alerts/Resolve', row)
+      .subscribe(
+        result => {
+          window.location.reload();
+      }
+    );
+    }
   }
 }

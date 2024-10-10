@@ -54,6 +54,15 @@
       <td mat-cell *matCellDef="let row">{{row.date}}</td>
     </ng-container>
 
+    <ng-container matColumnDef="resolve">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let row">
+        <button mat-icon-button (click)="onResolve(row)">
+          <mat-icon>done</mat-icon>
+        </button>
+      </td>
+    </ng-container> 
+
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
