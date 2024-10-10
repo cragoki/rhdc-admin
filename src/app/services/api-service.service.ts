@@ -17,7 +17,7 @@ export class ApiServiceService {
   constructor(private httpClient: HttpClient) { }
 
   // Define your method outside the constructor
-  getAlerts(): Observable<AlertModel[]> {
-    return this.httpClient.get<AlertModel[]>('https://localhost:7035/Alerts');
+  getItems<T>(url: string): Observable<T[]> {
+    return this.httpClient.get<T[]>('https://localhost:7035/' + url);
   }
 }
