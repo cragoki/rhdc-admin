@@ -8,7 +8,7 @@ export class RaceCourseTableDataSource extends MatTableDataSource<RaceCourseMode
   }
 
   loadCourses() {
-    this.apiService.getItems<RaceCourseModel>('Course').subscribe((errors: RaceCourseModel[]) => {
+    this.apiService.getItems<RaceCourseModel>('Course/GetCourses').subscribe((errors: RaceCourseModel[]) => {
       this.data = errors; 
     });
   }

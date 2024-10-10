@@ -1,0 +1,63 @@
+<div class="container">
+  <!-- Form container, centered with a max width of 80% -->
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <form [formGroup]="raceCourseForm" (ngSubmit)="onSubmit()" *ngIf="raceCourseForm">
+        
+        <!-- Row for Name input -->
+        <div class="form-group row">
+          <div class="col-md-6">
+            <label for="name">Name</label>
+            <input type="text" id="name" formControlName="name" class="form-control" [attr.disabled]="true" />
+          </div>
+        </div>
+        
+        <!-- Row for Surface Type -->
+        <div class="form-group row">
+          <div class="col-md-6">
+            <label for="surfaceType">Surface Type</label>
+            <select id="surfaceType" formControlName="surfaceType" class="form-control">
+              <option *ngFor="let type of raceCourse?.surfaceTypes" [value]="type">{{ type }}</option>
+            </select>
+          </div>
+        </div>
+        
+        <!-- Row for Grade -->
+        <div class="form-group row">
+          <div class="col-md-6">
+            <label for="grade">Grade</label>
+            <input type="number" id="grade" formControlName="grade" class="form-control" />
+          </div>
+        </div>
+        
+        <!-- Row for Speed Type -->
+        <div class="form-group row">
+          <div class="col-md-6">
+            <label for="speedType">Speed Type</label>
+            <select id="speedType" formControlName="speedType" class="form-control">
+              <option *ngFor="let speed of raceCourse?.speedTypes" [value]="speed">{{ speed }}</option>
+            </select>
+          </div>
+        </div>
+        
+        <!-- Row for Is All Weather checkbox -->
+        <div class="form-group row">
+          <div class="col-md-6">
+            <div class="form-check">
+              <!-- Remove the form-control class -->
+              <input type="checkbox" id="isAllWeather" formControlName="isAllWeather" class="form-check-input" />
+              <label class="form-check-label" for="isAllWeather">Is All Weather</label>
+            </div>
+          </div>
+        </div>
+        <!-- Submit Button -->
+        <div class="form-group row submit-button-container">
+          <div class="col-md-6">
+            <button type="submit" class="btn btn-primary" [disabled]="raceCourseForm.invalid">Submit</button>
+          </div>
+        </div>
+        
+      </form>
+    </div>
+  </div>
+</div>

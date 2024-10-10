@@ -8,7 +8,7 @@ export class AlertsTableDataSource extends MatTableDataSource<AlertModel> {
   }
 
   loadAlerts() {
-    this.apiService.getItems<AlertModel>('Alerts').subscribe((alerts: AlertModel[]) => {
+    this.apiService.getItems<AlertModel>('Alerts/GetUnresolved').subscribe((alerts: AlertModel[]) => {
       this.data = alerts; 
     });
   }

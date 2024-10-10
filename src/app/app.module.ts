@@ -23,6 +23,8 @@ import { ErrorsTableComponent } from './components/Tables/errors-table/errors-ta
 import { RaceCourseTableComponent } from './components/Tables/race-course-table/race-course-table.component';
 import { RaceCoursesComponent } from './components/race-courses/race-courses.component';
 import { provideHttpClient } from '@angular/common/http';
+import { EditRaceCourseComponent } from './components/edit-racecourse/edit-racecourse.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import { provideHttpClient } from '@angular/common/http';
     AlertsTableComponent,
     ErrorsTableComponent,
     RaceCourseTableComponent,
-    RaceCoursesComponent
+    RaceCoursesComponent,
+    EditRaceCourseComponent
   ],
   imports: [
     BrowserModule,
@@ -50,6 +53,7 @@ import { provideHttpClient } from '@angular/common/http';
     MatToolbarModule,
     LayoutModule,
     MatButtonModule,
+    ReactiveFormsModule
   ],
   providers: [
     provideClientHydration(),

@@ -8,7 +8,7 @@ export class ErrorsTableDataSource extends MatTableDataSource<ErrorModel> {
   }
 
   loadErrors() {
-    this.apiService.getItems<ErrorModel>('ErrorLog').subscribe((errors: ErrorModel[]) => {
+    this.apiService.getItems<ErrorModel>('ErrorLog/GetUnresolved').subscribe((errors: ErrorModel[]) => {
       this.data = errors; 
     });
   }

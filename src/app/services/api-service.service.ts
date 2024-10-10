@@ -16,8 +16,13 @@ export class ApiServiceService {
 
   constructor(private httpClient: HttpClient) { }
 
+  baseUrl = 'https://localhost:7035/';
   // Define your method outside the constructor
   getItems<T>(url: string): Observable<T[]> {
-    return this.httpClient.get<T[]>('https://localhost:7035/' + url);
+    return this.httpClient.get<T[]>(this.baseUrl + url);
+  }
+
+  getItem<T>(url: string): Observable<T> {
+    return this.httpClient.get<T>(this.baseUrl + url);
   }
 }
