@@ -36,10 +36,7 @@ export class RaceCourseTableComponent implements AfterViewInit {
   }
 
   onEdit(row: RaceCourseModel): void {
-    console.log('Edit clicked for:', row);
     const url = `${window.location.origin}/edit-racecourse/${row.id}`;
-    console.log(url);
-
     window.open(url, '_blank');
   }
 }

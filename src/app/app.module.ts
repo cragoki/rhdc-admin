@@ -25,6 +25,11 @@ import { RaceCoursesComponent } from './components/race-courses/race-courses.com
 import { provideHttpClient } from '@angular/common/http';
 import { EditRaceCourseComponent } from './components/edit-racecourse/edit-racecourse.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { EventsTableComponent } from './components/Tables/events-table/events-table.component';
+import { RacesTableComponent } from './components/Tables/races-table/races-table.component';
+import { RaceHorsesTableComponent } from './components/Tables/race-horses-table/race-horses-table.component';
+import { EventRacesComponent } from './components/event-races/event-races.component';
+import { RaceHorsesComponent } from './components/race-horses/race-horses.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +41,12 @@ import { ReactiveFormsModule } from '@angular/forms';
     ErrorsTableComponent,
     RaceCourseTableComponent,
     RaceCoursesComponent,
-    EditRaceCourseComponent
+    EditRaceCourseComponent,
+    EventsTableComponent,
+    RacesTableComponent,
+    RaceHorsesTableComponent,
+    EventRacesComponent,
+    RaceHorsesComponent
   ],
   imports: [
     BrowserModule,
