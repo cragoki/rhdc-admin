@@ -1,6 +1,7 @@
 @import "../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css";
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
+
 .full-width-table {
     width: 100%;
   }
@@ -22,4 +23,15 @@
 
   .submit-button-container{
     margin-top:20px !important;
+  }
+
+
+  .input-container {
+    display: flex;          /* Enable flexbox */
+    justify-content: center; /* Center horizontally */
+    align-items: center;     /* Center vertically */
+  }
+  
+  input[type="date"] {
+    margin: 20px 0; /* Set top and bottom margin to 20px */
   }

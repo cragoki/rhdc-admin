@@ -5,7 +5,7 @@ import { MatSort } from '@angular/material/sort';
 import { RaceCourseTableDataSource } from './race-course-table-datasource';
 import { RaceCourseModel } from '../../../models/race-course-model.model';
 import { ApiServiceService } from '../../../services/api-service.service';
-import { Router } from '@angular/router';  // Import Router
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-race-course-table',

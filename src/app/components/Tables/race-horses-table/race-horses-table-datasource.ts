@@ -8,7 +8,7 @@ export class RaceHorsesTableDataSource extends MatTableDataSource<RaceHorseModel
   }
 
   loadRaceHorses(raceId : number) {
-      this.apiService.getItems<RaceHorseModel>(`Race/GetHorsesForRace?id=${raceId}`).subscribe((errors: RaceHorseModel[]) => {
+      this.apiService.getItems<RaceHorseModel>(`RaceHorse/GetHorsesForRace?raceId=${raceId}`).subscribe((errors: RaceHorseModel[]) => {
       this.data = errors; 
     });
   }

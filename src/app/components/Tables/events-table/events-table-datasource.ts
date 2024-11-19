@@ -7,11 +7,8 @@ export class EventsTableDataSource extends MatTableDataSource<EventModel> {
     super(); // Call the constructor of MatTableDataSource
   }
 
-  loadEvents() {
-      const yesterday = new Date();
-      yesterday.setDate(yesterday.getDate() - 1);
-
-      this.apiService.getItems<EventModel>(`Event/GetEvents?date=${yesterday}`).subscribe((errors: EventModel[]) => {
+  loadEvents(date : string) {
+      this.apiService.getItems<EventModel>(`Event/GetEvents?date=${date}`).subscribe((errors: EventModel[]) => {
       this.data = errors; 
     });
   }

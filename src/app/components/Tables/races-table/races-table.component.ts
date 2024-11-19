@@ -5,7 +5,7 @@ import { MatSort } from '@angular/material/sort';
 import { RacesTableDataSource } from './races-table-datasource';
 import { RaceModel } from '../../../models/race-model.model';
 import { ApiServiceService } from '../../../services/api-service.service';
-import { Router } from 'express';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-races-table',
@@ -27,6 +27,7 @@ export class RacesTableComponent implements AfterViewInit {
   ngOnInit() {
     // Initialize data source and load alerts
     this.dataSource = new RacesTableDataSource(this.apiService);
+    console.log(this.eventId);
     this.dataSource.loadRaces(this.eventId); 
   }
 

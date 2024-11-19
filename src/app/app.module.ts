@@ -24,7 +24,7 @@ import { RaceCourseTableComponent } from './components/Tables/race-course-table/
 import { RaceCoursesComponent } from './components/race-courses/race-courses.component';
 import { provideHttpClient } from '@angular/common/http';
 import { EditRaceCourseComponent } from './components/edit-racecourse/edit-racecourse.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { EventsTableComponent } from './components/Tables/events-table/events-table.component';
 import { RacesTableComponent } from './components/Tables/races-table/races-table.component';
 import { RaceHorsesTableComponent } from './components/Tables/race-horses-table/race-horses-table.component';
@@ -50,6 +50,7 @@ import { RaceHorsesComponent } from './components/race-horses/race-horses.compon
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     MatInputModule,
     MatTableModule,
